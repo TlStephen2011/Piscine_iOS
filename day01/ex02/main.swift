@@ -1,0 +1,6 @@
+print()
+print(Deck.allSpades)
+print(Deck.allHearts)
+print()
+print("All Cards")
+print(Deck.allCards)
