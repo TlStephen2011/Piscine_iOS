@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  NoteViewController.swift
 //  DeathNote
 //
 //  Created by Tyrone STEPHEN on 2019/10/11.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class NoteViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

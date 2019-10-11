@@ -13,7 +13,7 @@
 		883D56E12350A7A400E29A4C /* NotebookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883D56E02350A7A400E29A4C /* NotebookTableViewController.swift */; };
 		8869BA4123508690004D16B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869BA4023508690004D16B3 /* AppDelegate.swift */; };
 		8869BA4323508691004D16B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869BA4223508690004D16B3 /* SceneDelegate.swift */; };
-		8869BA4523508691004D16B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869BA4423508691004D16B3 /* ViewController.swift */; };
+		8869BA4523508691004D16B3 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869BA4423508691004D16B3 /* NoteViewController.swift */; };
 		8869BA4823508691004D16B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8869BA4623508691004D16B3 /* Main.storyboard */; };
 		8869BA4A23508693004D16B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8869BA4923508693004D16B3 /* Assets.xcassets */; };
 		8869BA4D23508693004D16B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8869BA4B23508693004D16B3 /* LaunchScreen.storyboard */; };
@@ -27,7 +27,7 @@
 		8869BA3D23508690004D16B3 /* DeathNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeathNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8869BA4023508690004D16B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8869BA4223508690004D16B3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8869BA4423508691004D16B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8869BA4423508691004D16B3 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		8869BA4723508691004D16B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8869BA4923508693004D16B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8869BA4C23508693004D16B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 			children = (
 				8869BA4023508690004D16B3 /* AppDelegate.swift */,
 				8869BA4223508690004D16B3 /* SceneDelegate.swift */,
-				8869BA4423508691004D16B3 /* ViewController.swift */,
+				8869BA4423508691004D16B3 /* NoteViewController.swift */,
 				8869BA4623508691004D16B3 /* Main.storyboard */,
 				883D56E02350A7A400E29A4C /* NotebookTableViewController.swift */,
 				8869BA4923508693004D16B3 /* Assets.xcassets */,
@@ -151,7 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				883D56DD2350A16800E29A4C /* Death.swift in Sources */,
-				8869BA4523508691004D16B3 /* ViewController.swift in Sources */,
+				8869BA4523508691004D16B3 /* NoteViewController.swift in Sources */,
 				8869BA4123508690004D16B3 /* AppDelegate.swift in Sources */,
 				8869BA4323508691004D16B3 /* SceneDelegate.swift in Sources */,
 				883D56E12350A7A400E29A4C /* NotebookTableViewController.swift in Sources */,
