@@ -23,6 +23,10 @@ class NoteViewController: UIViewController, UITextFieldDelegate {
         
         nameButton.delegate = self
         updateDoneButtonState()
+        
+        let today = Date()
+        selectedDate.minimumDate = today
+        
         // Do any additional setup after loading the view.
     }
 
@@ -49,6 +53,9 @@ class NoteViewController: UIViewController, UITextFieldDelegate {
         
         // Make new note
         deathNote = Death(name: name, desc: desc, date: dateFormatterPrint.string(from: date))
+        
+        // debug entered info to console
+        print("(\(name) dies on \(date) by \(desc))")
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
