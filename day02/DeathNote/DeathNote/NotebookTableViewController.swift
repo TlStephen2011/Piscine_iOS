@@ -11,13 +11,23 @@ import UIKit
 class NotebookTableViewController: UITableViewController {
 
     //MARK: Properties
-    let entries:[Death] = Notebook.entries
+    var entries:[Death] = Notebook.entries
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
 
+    //MARK: Actions
+    @IBAction func unwindToNotebook(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? NoteViewController, let deathNote = sourceViewController.deathNote {
+            // Add a new note
+            let newIndexPath = IndexPath(row: entries.count, section: 0)
+            entries.append(deathNote)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -38,7 +48,8 @@ class NotebookTableViewController: UITableViewController {
         
         cell.nameLabel.text = note.name
         cell.descriptionLabel.text = note.description
-
+        cell.dateLabel.text = note.date
+        
         return cell
     }
 

@@ -11,9 +11,11 @@ import Foundation
 class Death {
     var name: String
     var description: String
+    var date: String
     
-    init(name n: String, desc d: String) {
+    init(name n: String, desc d: String, date someDate: String) {
         self.name = n
         self.description = d
+        self.date = someDate
     }
 }

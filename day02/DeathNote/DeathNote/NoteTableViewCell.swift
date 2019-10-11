@@ -13,6 +13,7 @@ class NoteTableViewCell: UITableViewCell {
     //MARK: Properties
     @IBOutlet weak var nameLabel: UILabel!    
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

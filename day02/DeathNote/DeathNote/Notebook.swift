@@ -10,8 +10,8 @@ import Foundation
 
 class Notebook {
     static let entries: [Death] = [
-        Death(name: "Naruto", desc: "Decapitation"),
-        Death(name: "Luffy", desc: "Old age"),
-        Death(name: "Ichigo", desc: "Betrayal")
+        Death(name: "Naruto", desc: "Decapitation", date: "10/10/2020"),
+        Death(name: "Luffy", desc: "Old age", date: "20/5/2021"),
+        Death(name: "Ichigo", desc: "Betrayal", date: "30/03/2050")
     ]
 }
