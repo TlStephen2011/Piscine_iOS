@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,13 +17,13 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="POa-6l-GDq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="locationCell" id="oN3-TM-4ZG" customClass="LocationTableViewCell" customModule="Kanto" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oN3-TM-4ZG" id="dqE-3m-tld">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Places" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJ5-kY-YHY">
@@ -45,7 +48,7 @@
                             <outlet property="delegate" destination="YaG-KA-lLJ" id="Hek-XD-c2T"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="List Places" image="list.bullet" catalog="system" selectedImage="list.bullet" id="sPO-Sr-O9W"/>
+                    <tabBarItem key="tabBarItem" title="List Places" image="places" selectedImage="places" id="sPO-Sr-O9W"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FdI-am-ePl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -63,27 +66,29 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lU3-YC-fAM">
-                                <rect key="frame" x="50" y="566" width="275" height="32"/>
+                                <rect key="frame" x="50" y="566" width="275" height="29"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <segments>
                                     <segment title="Standard"/>
                                     <segment title="Satellite"/>
                                     <segment title="Hybrid"/>
                                 </segments>
-                                <color key="selectedSegmentTintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="mapViewChanged:" destination="8rJ-Kc-sve" eventType="valueChanged" id="iAg-Sb-XKs"/>
                                 </connections>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENY-fX-5fE">
-                                <rect key="frame" x="329" y="566" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENY-fX-5fE">
+                                <rect key="frame" x="333" y="569" width="22" height="22"/>
+                                <connections>
+                                    <action selector="onRequestCurrentLocation:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="K7s-el-0rA"/>
+                                </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="lU3-YC-fAM" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="2cM-Co-cx2"/>
+                            <constraint firstItem="ENY-fX-5fE" firstAttribute="top" secondItem="71v-5T-1Vz" secondAttribute="bottom" constant="-98" id="3r8-wA-mwR"/>
+                            <constraint firstItem="ENY-fX-5fE" firstAttribute="leading" secondItem="lU3-YC-fAM" secondAttribute="trailing" constant="8" id="HSW-YM-YCG"/>
                             <constraint firstItem="71v-5T-1Vz" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="top" id="V3l-Ba-FD0"/>
                             <constraint firstItem="lU3-YC-fAM" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="50" id="YXr-gX-0sq"/>
                             <constraint firstAttribute="trailing" secondItem="71v-5T-1Vz" secondAttribute="trailing" id="bYA-J9-JNY"/>
@@ -94,7 +99,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="map" selectedImage="map" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="mapView" destination="71v-5T-1Vz" id="1dR-tq-qvO"/>
                     </connections>
@@ -123,7 +128,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="list.bullet" catalog="system" width="64" height="44"/>
-        <image name="map" catalog="system" width="64" height="56"/>
+        <image name="map" width="50" height="50"/>
+        <image name="places" width="50" height="50"/>
     </resources>
 </document>

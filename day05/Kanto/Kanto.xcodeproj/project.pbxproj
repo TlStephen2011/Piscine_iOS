@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		88493BF523546640004AE34B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88493BF423546640004AE34B /* AppDelegate.swift */; };
-		88493BF723546640004AE34B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88493BF623546640004AE34B /* SceneDelegate.swift */; };
 		88493BFB23546640004AE34B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88493BFA23546640004AE34B /* MapViewController.swift */; };
 		88493BFE23546640004AE34B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88493BFC23546640004AE34B /* Main.storyboard */; };
 		88493C0023546644004AE34B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88493BFF23546644004AE34B /* Assets.xcassets */; };
@@ -21,7 +20,6 @@
 /* Begin PBXFileReference section */
 		88493BF123546640004AE34B /* Kanto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kanto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88493BF423546640004AE34B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		88493BF623546640004AE34B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		88493BFA23546640004AE34B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		88493BFD23546640004AE34B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		88493BFF23546644004AE34B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -63,7 +61,6 @@
 			isa = PBXGroup;
 			children = (
 				88493BF423546640004AE34B /* AppDelegate.swift */,
-				88493BF623546640004AE34B /* SceneDelegate.swift */,
 				88493BFA23546640004AE34B /* MapViewController.swift */,
 				88493BFC23546640004AE34B /* Main.storyboard */,
 				88493C0C23547FA0004AE34B /* LocationTableViewCell.swift */,
@@ -151,7 +148,6 @@
 				88493BFB23546640004AE34B /* MapViewController.swift in Sources */,
 				88493C0B23547EF4004AE34B /* Location.swift in Sources */,
 				88493BF523546640004AE34B /* AppDelegate.swift in Sources */,
-				88493BF723546640004AE34B /* SceneDelegate.swift in Sources */,
 				88493C0F23548115004AE34B /* LocationTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,13 +294,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Kanto/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = za.co.wethinkcode.Kanto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -315,13 +312,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Kanto/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = za.co.wethinkcode.Kanto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -8,12 +8,15 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, CLLocationManagerDelegate {
 
     //MARK: properties
     @IBOutlet weak var mapView: MKMapView!
     let regionRadius:Double = 500
+    let locationManager = CLLocationManager()
+    var currentLocation: CLLocationCoordinate2D?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +27,14 @@ class MapViewController: UIViewController {
         
         // add map pin (annotation)
         addMapAnnotation(coordinate: initialLocation, title: "WeThinkCode_", subtitle: "Learn to code here")
+        
+        // handle user location and permissions
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
     }
     
+    //MARK: actions
     @IBAction func mapViewChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
@@ -36,6 +45,15 @@ class MapViewController: UIViewController {
             mapView.mapType = .hybrid
         default:
             mapView.mapType = .standard
+        }
+    }
+    
+    @IBAction func onRequestCurrentLocation(_ sender: UIButton) {
+        if (CLLocationManager.locationServicesEnabled()) {
+            locationManager.startUpdatingLocation()
+            if (currentLocation != nil) {
+                centerMapOnLocation(location: currentLocation!)
+            }
         }
     }
     
@@ -50,6 +68,31 @@ class MapViewController: UIViewController {
         annotation.title = title
         annotation.subtitle = subtitle
         mapView.addAnnotation(annotation)
+    }
+}
+
+extension MapViewController {
+//    private func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+//        switch status {
+//        case .notDetermined:
+//            locationManager.requestWhenInUseAuthorization()
+//        case .denied:
+//            fatalError("This app requires your location")
+//        case .authorizedWhenInUse:
+//            break
+//        case .authorizedAlways:
+//            break
+//        case .restricted:
+//            fatalError("This app requires your location")
+//        default:
+//            break
+//        }
+//    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue:CLLocationCoordinate2D = locationManager.location?.coordinate else {return}
+        print(locValue)
+        currentLocation = locValue
     }
     
 }
