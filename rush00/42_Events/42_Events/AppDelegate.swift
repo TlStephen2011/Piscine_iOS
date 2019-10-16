@@ -57,7 +57,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         if let code = params.first(where: { $0.name == "code" })?.value {
-            print("code = \(code)")
+            
+            let url = URL(string: "https://api.intra.42.fr/oauth/token")!
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            let json = [
+                "grant_type": "authorization_code",
+                "client_id": "253c24da3a92d302d3aa9388a7fd8e5218d7e395a84ae8f95a06d04db5918843",
+                "client_secret": "1f0a0d4fcb43f0e56619fae1f79f47a97054ac0841f6a26d6d354674087d13ff",
+                "code": code,
+                "redirect_uri": "events://oauth/callback"
+            ]
+            
+            let jsonData = try! JSONSerialization.data(withJSONObject: json, options: [])
+            let task = URLSession.shared.uploadTask(with: request, from: jsonData) { data, response, error in
+                print(response)
+                if let data = data,
+                    let jsonD = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    for (k, v) in jsonD! {
+                        print("\(k): \(v)")
+                    }
+                }
+                //print(error)
+            }
+            task.resume()
             return true
         } else {
             print("Code missing")
