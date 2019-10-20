@@ -74,12 +74,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let jsonData = try! JSONSerialization.data(withJSONObject: json, options: [])
             let task = URLSession.shared.uploadTask(with: request, from: jsonData) { data, response, error in
-                print(response)
                 if let data = data,
                     let jsonD = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                     for (k, v) in jsonD! {
                         print("\(k): \(v)")
                     }
+                    APIController.token = jsonD.access_token
+                    
+                    DispatchQueue.global(qos: .utility).async {
+                        let res = 
+                    }
+                    
                 }
                 //print(error)
             }

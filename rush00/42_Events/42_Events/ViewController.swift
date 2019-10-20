@@ -30,7 +30,7 @@ class ViewController: UIViewController {
             URLQueryItem(name: "client_id", value: clientId),
             URLQueryItem(name: "redirect_uri", value: "events://oauth/callback"),
             URLQueryItem(name: "response_type", value: "code"),
-            URLQueryItem(name: "scope", value: "public")
+            URLQueryItem(name: "scope", value: "public profile")
         ]
         print(urlComponents.url?.absoluteString)
         let task = URLSession.shared.dataTask(with: urlComponents.url! as URL) { (data, response, error) in
