@@ -10,20 +10,42 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    private var animator: UIDynamicAnimator!
+    private var subviews: [Shape] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
 
     @IBAction func tappedView(_ sender: UITapGestureRecognizer) {
         let location: CGPoint = sender.location(in: view)
-        view.addSubview(Shape(frame: CGRect(x: location.x - 50, y: location.y - 50, width: 100, height: 100)))
+        let shape = Shape(frame: CGRect(x: location.x - 50, y: location.y - 50, width: 100, height: 100))
+        subviews.append(shape)
+        view.addSubview(shape)
+        
+        animator = UIDynamicAnimator(referenceView: view)
+        
+        let gravity = UIGravityBehavior(items: subviews)
+        let direction = CGVector(dx: 0.0, dy: 1.0)
+        gravity.gravityDirection = direction
+        
+        let boundries = UICollisionBehavior(items: subviews)
+        boundries.translatesReferenceBoundsIntoBoundary = true
+        
+        let bounce = UIDynamicItemBehavior(items: subviews)
+        bounce.elasticity = 0.5
+        
+        animator.addBehavior(gravity)
+        animator.addBehavior(boundries)
+        animator.addBehavior(bounce)
         print("Tapped view at \(sender.location(in: view))")
     }
     
 }
 
 class Shape: UIView {
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
