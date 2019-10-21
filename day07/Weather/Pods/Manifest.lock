@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (4.9.0)
+  - ObjectMapper (3.5.1)
+  - sapcai (4.0.0):
+    - Alamofire
+    - ObjectMapper
+
+DEPENDENCIES:
+  - sapcai
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - ObjectMapper
+    - sapcai
+
+SPEC CHECKSUMS:
+  Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
+  ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
+  sapcai: 4fb897913d393826aea926e9b36c03a6cbfaf62d
+
+PODFILE CHECKSUM: a59cc4aff6862eac681ce9c2f8180ec0d75028c2
+
+COCOAPODS: 1.8.3
