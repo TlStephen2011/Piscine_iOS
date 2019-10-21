@@ -12,10 +12,31 @@ class MainViewController: UIViewController {
 
     private var animator: UIDynamicAnimator!
     private var subviews: [Shape] = []
+    private var gravity: UIGravityBehavior!
+    private var bounce: UIDynamicItemBehavior!
+    private var boundries: UICollisionBehavior!
+    private var selectedShape: Shape? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        animator = UIDynamicAnimator(referenceView: view)
+        
+        // Behaviors
+        gravity = UIGravityBehavior()
+        let direction = CGVector(dx: 0.0, dy: 1.0)
+        gravity.gravityDirection = direction
+        boundries = UICollisionBehavior()
+        boundries.translatesReferenceBoundsIntoBoundary = true
+        bounce = UIDynamicItemBehavior()
+        bounce.elasticity = 0.5
+        
+        animator.addBehavior(gravity)
+        animator.addBehavior(boundries)
+        animator.addBehavior(bounce)
+        
+        //Gesture recognizers on superview
+        addPanGesture(view: view)
     }
 
     @IBAction func tappedView(_ sender: UITapGestureRecognizer) {
@@ -24,22 +45,55 @@ class MainViewController: UIViewController {
         subviews.append(shape)
         view.addSubview(shape)
         
-        animator = UIDynamicAnimator(referenceView: view)
+        // Gesture recognizers
+        //addPanGesture(view: shape)
         
-        let gravity = UIGravityBehavior(items: subviews)
-        let direction = CGVector(dx: 0.0, dy: 1.0)
-        gravity.gravityDirection = direction
+        // Add subview to certain behaviors
+        gravity.addItem(shape)
+        bounce.addItem(shape)
+        boundries.addItem(shape)
+    }
+    
+    func addPanGesture(view: UIView) {
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(MainViewController.handlePan(sender:)))
+        view.addGestureRecognizer(pan)
+    }
+    
+    @objc func handlePan(sender: UIPanGestureRecognizer) {
+        let translation = sender.translation(in: view)
         
-        let boundries = UICollisionBehavior(items: subviews)
-        boundries.translatesReferenceBoundsIntoBoundary = true
         
-        let bounce = UIDynamicItemBehavior(items: subviews)
-        bounce.elasticity = 0.5
+        switch sender.state {
+        case .began:
+            
+            let tapLocation = sender.location(in: view);
+            
+            for shape in subviews {
+                if (shape.layer.presentation()?.frame.contains(tapLocation))! {
+                    selectedShape = shape
+                }
+            }
+            
+            if (selectedShape != nil) {
+                view.bringSubviewToFront(selectedShape!)
+                gravity.removeItem(selectedShape!)
+            }
+            
+        case .changed:
+            if (selectedShape != nil) {
+                selectedShape!.center = CGPoint(x: selectedShape!.center.x + translation.x, y: selectedShape!.center.y)
+                sender.setTranslation(CGPoint.zero, in: view)
+            }
+        case .ended:
+            if (selectedShape != nil) {
+                gravity.addItem(selectedShape!)
+                selectedShape = nil
+            }
+            
+        default:
+            print("Default case in pan gesture")
+        }
         
-        animator.addBehavior(gravity)
-        animator.addBehavior(boundries)
-        animator.addBehavior(bounce)
-        print("Tapped view at \(sender.location(in: view))")
     }
     
 }
